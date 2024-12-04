@@ -1,44 +1,9 @@
 
 import { _decorator, Component, Node } from 'cc';
+import {SceneManager} from "db://assets/Scripts/Scene/SceneManager";
 const { ccclass, property } = _decorator;
 
-/**
- * Predefined variables
- * Name = H4SceneManger
- * DateTime = Sun Dec 01 2024 14:17:35 GMT+0800 (中国标准时间)
- * Author = zhengyang1
- * FileBasename = H4SceneManger.ts
- * FileBasenameNoExtension = H4SceneManger
- * URL = db://assets/Scripts/Scene/H4SceneManger.ts
- * ManualUrl = https://docs.cocos.com/creator/3.4/manual/zh/
- *
- */
- 
+
 @ccclass('H4SceneManger')
-export class H4SceneManger extends Component {
-    // [1]
-    // dummy = '';
-
-    // [2]
-    // @property
-    // serializableDummy = 0;
-
-    start () {
-        // [3]
-    }
-
-    // update (deltaTime: number) {
-    //     // [4]
-    // }
+export class H4SceneManger extends SceneManager {
 }
-
-/**
- * [1] Class member could be defined like this.
- * [2] Use `property` decorator if your want the member to be serializable.
- * [3] Your initialization goes here.
- * [4] Your update function goes here.
- *
- * Learn more about scripting: https://docs.cocos.com/creator/3.4/manual/zh/scripting/
- * Learn more about CCClass: https://docs.cocos.com/creator/3.4/manual/zh/scripting/decorator.html
- * Learn more about life-cycle callbacks: https://docs.cocos.com/creator/3.4/manual/zh/scripting/life-cycle-callbacks.html
- */
