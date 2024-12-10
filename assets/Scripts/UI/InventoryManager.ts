@@ -51,6 +51,7 @@ export class InventoryManager extends RenderManager {
             }
         }
         this.hand.active = DataManager.Instance.isSelect&&Boolean(DataManager.Instance.curItemType)
+        this.changeBtnInteractable()
     }
 
     generateItem(type:ItemTypeEnum){
@@ -80,6 +81,42 @@ export class InventoryManager extends RenderManager {
 
     handleSelect() {
         DataManager.Instance.isSelect = !DataManager.Instance.isSelect
+    }
+
+    handleLeftBtn(){
+        if(DataManager.Instance.curItemType ===null){
+
+            return
+        }
+        const isInventoryItems = DataManager.Instance.items.filter(i => i.status === ItemStatusEnum.Inventory)
+        const index = isInventoryItems.findIndex(i => i.type === DataManager.Instance.curItemType)
+        if(index>0){
+            DataManager.Instance.isSelect = false
+            DataManager.Instance.curItemType = isInventoryItems[index-1].type
+        }
+    }
+    handleRightBtn(){
+        if(DataManager.Instance.curItemType ===null){
+
+            return
+        }
+        const isInventoryItems = DataManager.Instance.items.filter(i => i.status === ItemStatusEnum.Inventory)
+        const index = isInventoryItems.findIndex(i => i.type === DataManager.Instance.curItemType)
+        if(index<isInventoryItems.length-1){
+            DataManager.Instance.isSelect = false
+            DataManager.Instance.curItemType = isInventoryItems[index+1].type
+        }
+    }
+    changeBtnInteractable(){
+        if(DataManager.Instance.curItemType ===null){
+            this.leftBtn.interactable = false
+            this.rightBtn.interactable = false
+            return
+        }
+        const isInventoryItems = DataManager.Instance.items.filter(i => i.status === ItemStatusEnum.Inventory)
+        const index = isInventoryItems.findIndex(i => i.type === DataManager.Instance.curItemType)
+        this.leftBtn.interactable = index>0
+        this.rightBtn.interactable = index<isInventoryItems.length-1
     }
 }
 
