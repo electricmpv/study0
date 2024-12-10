@@ -18,18 +18,26 @@ export class ItemManager extends RenderManager {
   inventorySf: SpriteFrame = null
 
   start() {
-    super.start()
+
     this.node.on(Node.EventType.TOUCH_END, this.touchEnd, this)
+      super.start()
   }
 
   onDestroy() {
-      super.onDestroy()
+
     this.node.off(Node.EventType.TOUCH_END, this.touchEnd,this)
+      super.onDestroy()
   }
 
   render() {
-      const status = DataManager.Instance.items.find(i => i.type === this.type)?.status
       const spriteComponent = this.getComponent(Sprite)
+      const status = DataManager.Instance.items.find(i => i.type === this.type)?.status
+
+     /* console.log('Render Method - Status:', status);
+      console.log('Render Method - sceneSf:', this.sceneSf);
+      console.log('Render Method - inventorySf:', this.inventorySf);
+      console.log('Render Method - Sprite Component:', spriteComponent);*/
+
       switch (status) {
           case ItemStatusEnum.Scene:
               this.node.active = true
@@ -49,12 +57,16 @@ export class ItemManager extends RenderManager {
 
   touchEnd() {
     const item = DataManager.Instance.items.find(i => i.type === this.type)
+     // console.log('Touch End Item:', item)
     if (!item) {
       return
     }
     if (item.status === ItemStatusEnum.Scene) {
       item.status = ItemStatusEnum.Inventory
       DataManager.Instance.items = [...DataManager.Instance.items]
+       // console.log('Item Status Updated:', item.status)
+
+
     }
   }
 }
