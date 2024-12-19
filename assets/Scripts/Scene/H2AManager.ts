@@ -5,9 +5,9 @@ import {SceneEnum} from "db://assets/Scripts/Enum";
 const { ccclass, property } = _decorator;
 
 
- 
-@ccclass('H1SceneManger')
-export class H1SceneManger extends SceneManager {
-        type: SceneEnum = SceneEnum.H1
+
+@ccclass('H2AManager')
+export class H2AManager extends SceneManager {
+        type:SceneEnum=SceneEnum.H2A
 }
 

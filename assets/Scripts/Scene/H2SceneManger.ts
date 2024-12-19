@@ -1,7 +1,7 @@
 import {_decorator, Node, Prefab,instantiate} from 'cc'
 import {SceneManager} from 'db://assets/Scripts/Scene/SceneManager'
 import DataManager from 'db://assets/Scripts/Runtime/DataManager'
-import {ItemStatusEnum, ItemTypeEnum} from 'db://assets/Scripts/Enum'
+import {ItemStatusEnum, ItemTypeEnum, SceneEnum} from 'db://assets/Scripts/Enum'
 
 const { ccclass, property } = _decorator
 
@@ -11,6 +11,8 @@ export class H2SceneManger extends SceneManager {
   keyPrefab: Prefab = null
   @property(Node)
   keyPlaceholder: Node = null
+
+  type:SceneEnum=SceneEnum.H2
 
   render() {
     super.render()

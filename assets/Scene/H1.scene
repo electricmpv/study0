@@ -663,6 +663,15 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "items": null,
+    "inventory": {
+      "__uuid__": "2a21956f-3dd0-4983-9846-031053db8841",
+      "__expectedType__": "cc.Prefab"
+    },
+    "menu": {
+      "__uuid__": "f4e4d0d6-133a-42cc-9308-3fb2d0f00f0d",
+      "__expectedType__": "cc.Prefab"
+    },
     "_id": "0atJXGLmxLmqLSZd7TGyzF"
   },
   {
